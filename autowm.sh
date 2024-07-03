@@ -83,7 +83,7 @@ cp $repo_path/.config/* ~/.config -r
 cp $repo_path/.tmux* ~/ -r
 cp $repo_path/.zshrc ~/ 
 cp $repo_path/.p10k.zsh ~/
-
+cp $repo_path/fondo.png ~/Pictures
 
 
 
