@@ -39,13 +39,15 @@ sudo bash -c "cd /usr/local/share/fonts/; mv $repo_path/install/Hack.zip . ; unz
 
 
 echo -e "Instalando Alacritty"
-sudo apt install alacritty
+sudo apt install alacritty -y 
 
 echo -e "Instalando tmux"
-sudo apt install tmux
+sudo apt install tmux -y
+touch ~/.hushlogin
+sudo bash -c 'touch ~/.hushlogin'
 
 echo -e "Configurando zsh"
-sudo apt install zsh
+sudo apt install zsh -y
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 sudo bash -c 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
@@ -53,17 +55,41 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 sudo bash -c 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k'
 
+sudo apt intall zsh-syntax-highlighting zsh-autosuggestions
 echo -e "Instalando rofi"
-sudo apt install rofi
+sudo apt install rofi -y
 
 echo -e "Instalando fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+echo "Instalando lsd y batcat"
+sudo apt install bat lsd
+
+sudo bash -c 'git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf'
+sudo bash -c '~/.fzf/install'
 echo -e "Instalamos ranger"
-sudo apt install ranger
+sudo apt install ranger -y
+
+cd $repo_path
+echo 'creando config del usuario'
+cp $repo_path/.config/* ~/.config -r
+cp $repo_path/.tmux* ~/ -r
+cp $repo_path/.zshrc ~/ 
+cp $repo_path/.p10k.zsh ~/
 
 
 
 
+echo "creando configs del usuario root, creando enlaces simbolicos al archivo del usuario $1"
+# cuidado con esta linea, ya que sobreescribe lo que haya
+sudo bash -c 'mkdir -p ~/.config'
+sudo bash -c "ln -sf /home/$1/.config/alacritty ~/.config/alacritty"
+sudo bash -c "ln -sf /home/$1/.tmux ~/.tmux"
+sudo bash -c "ln -sf /home/$1/.tmux.conf ~/.tmux.conf"
+sudo bash -c "ln -sf /home/$1/.tmux.conf.local ~/.tmux.conf.local"
+sudo bash -c "ln -sf /home/$1/.zshrc ~/.zshrc"
+sudo bash -c "ln -sf /home/$1/.p10k.zsh ~/.p10k.zsh"
 
+
+rm -rf $repo_path/install
