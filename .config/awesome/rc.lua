@@ -106,12 +106,10 @@ do
   local cmds =
   {
     "picom --experimental-backends ",
-    -- comentar en caso de que no sea una VM
-    "vmware-user-suid-wrapper --no--startup-id",
-    -- elegir los que correspondan
-    --"nm-applet",
+    -- "vmware-user-suid-wrapper --no--startup-id",
+    "nm-applet",
     "pulseaudio -D",
-    --"blueman-applet",
+    "blueman-applet"
   }
 
   for _,i in pairs(cmds) do

@@ -241,7 +241,7 @@ s.mytaglist = awful.widget.taglist {
     s.mytasklist, -- Middle widget
       { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
-        --spacing = 10,
+        spacing = 2,
         spacing_widget = {
           color  = '#dddddd',
 
@@ -249,7 +249,10 @@ s.mytaglist = awful.widget.taglist {
       ykeyboardlayout,
       wibox.widget.systray(),
       volume_widget(),
-      brightness_widget(),
+      brightness_widget({
+	program = "brightnessctl",
+	      --type = "icon_and_text"
+      }),
       batteryarc_widget({
         show_current_level = true,
         arc_thickness = 1,

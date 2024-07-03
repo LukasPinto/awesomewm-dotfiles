@@ -9,7 +9,7 @@ local menubar = require("menubar")
 -- Resource Configuration
 local modkey = RC.vars.modkey
 local terminal = RC.vars.terminal
-
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local _M = {}
 
 -- reading
@@ -150,11 +150,37 @@ function _M.get()
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
+    
+    --   -- -- -- -- -- -- -- CUSTOM -- -- -- -- -- -- -- -- -- -- -- --
     -- Rofi menu
     awful.key({ modkey }, "d", function() awful.util.spawn("rofi -show drun -show-icons",false) end,
-    {description = "Open rofi drun menu", group = "launcher"})
+    {description = "Open rofi drun menu", group = "custom"}),
+    
+    awful.key({ modkey, "Shift" },  "+", function () 
+    brightness_widget:inc() end, {description = "increase brightness", group = "custom"}),
+    
+    awful.key({ modkey, "Shift" },  "-" , function () 
+    brightness_widget:dec() end, {description = "decrease brightness", group = "custom"}),
+    
+    awful.key({}, "XF86AudioLowerVolume", function ()
+    awful.util.spawn("amixer -q -D pulse sset Master 5%-", false) end),
+    
+    awful.key({}, "XF86AudioRaiseVolume", function ()
+    awful.util.spawn("amixer -q -D pulse sset Master 5%+", false) end),
+    
+    awful.key({}, "XF86AudioMute", function ()
+    awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),
+    -- Media Keys
+    awful.key({}, "XF86AudioPlay", function()
+    awful.util.spawn("playerctl play-pause", false) end),
+    
+    awful.key({}, "XF86AudioNext", function()
+    awful.util.spawn("playerctl next", false) end),
+    
+    awful.key({}, "XF86AudioPrev", function()
+    awful.util.spawn("playerctl previous", false) end)
 
-  )
+    )
   
   return globalkeys
 end
