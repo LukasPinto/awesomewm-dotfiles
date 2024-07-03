@@ -25,7 +25,7 @@ cd picom/
 git submodule update --init --recursive
 meson --buildtype=release . build
 ninja -C build
-sudo ninja -C build installi
+sudo ninja -C build install
 
 
 echo -e "Instalando HackNerdFonts"
@@ -38,7 +38,7 @@ echo -e "Instalando Alacritty"
 sudo apt install alacritty
 
 echo -e "Instalando tmux"
-sudo apt instal tmux
+sudo apt install tmux
 
 echo -e "Configurando zsh"
 sudo apt install zsh
