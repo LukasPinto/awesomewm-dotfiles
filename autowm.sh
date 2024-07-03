@@ -55,7 +55,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 sudo bash -c 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k'
 
-sudo apt intall zsh-syntax-highlighting zsh-autosuggestions
+sudo apt install zsh-syntax-highlighting zsh-autosuggestions
 echo -e "Instalando rofi"
 sudo apt install rofi -y
 
