@@ -33,7 +33,7 @@ sudo ninja -C build install
 
 
 echo -e "Instalando HackNerdFonts"
-cd ..
+cd $repo_path/install
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip
 sudo bash -c "cd /usr/local/share/fonts/; mv $repo_path/install/Hack.zip . ; unzip Hack.zip; rm Hack.zip;fc-cache -v"
 
@@ -58,6 +58,12 @@ sudo bash -c 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $
 sudo apt install zsh-syntax-highlighting zsh-autosuggestions
 echo -e "Instalando rofi"
 sudo apt install rofi -y
+cd $repo_path/install/
+git clone https://github.com/lr-tech/rofi-themes-collection.git
+mkdir -p ~/.local/share/rofi/themes/
+cp rofi-themes-collection/themes/rounded-nord-dark.rasi ~/.local/share/rofi/themes/
+cp rofi-themes-collection/themes/rounded-common.rasi ~/.local/share/rofi/themes/
+cd $repo_path
 
 echo -e "Instalando fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
