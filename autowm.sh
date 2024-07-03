@@ -78,6 +78,11 @@ echo -e "Instalamos ranger"
 sudo apt install ranger -y
 
 cd $repo_path
+
+echo "Instalando dependencias para el audio, brillo, wifi, bluetooth"
+
+sudo apt install -y alsa-utils pulseaudio network-manager blueman bluez-obexd brightnessctl
+
 echo 'creando config del usuario'
 cp $repo_path/.config/* ~/.config -r
 cp $repo_path/.tmux* ~/ -r
