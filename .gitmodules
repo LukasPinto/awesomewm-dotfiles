@@ -2,5 +2,8 @@
 	path = .config/alacritty/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme.git
 [submodule ".config/awesome/awesome-wm-widgets"]
-	path = .confg/awesome/awesome-wm-widgets
+	path = .config/awesome/awesome-wm-widgets
 	url = https://github.com/streetturtle/awesome-wm-widgets.git
+[submodule ".tmux"]
+	path = .tmux
+	url = https://github.com/gpakosz/.tmux.git
