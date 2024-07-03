@@ -1,0 +1,30 @@
+import = [
+    "~/.config/alacritty/themes/themes/pencil_dark.toml"
+]
+
+[font]
+
+normal.family = "Hack Nerd Font Propo"
+bold.family = "Hack Nerd Font Propo"
+italic.family = "Hack Nerd Font Propo"
+bold_italic.family = "Hack Nerd Font Propo"
+offset.x = 0  # For letter spacing (default: 0)
+offset.y = 0
+size = 12.5
+
+[cursor]
+style.shape = "Beam"
+style.blinking = "Always"
+
+blink_interval = 700
+
+[mouse]
+hide_when_typing = true
+
+[window]
+padding.x = 10
+padding.y = 5
+opacity = 1
+title = "Alacritty"
+#dynamic_title = false
+
