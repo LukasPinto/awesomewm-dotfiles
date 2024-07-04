@@ -27,3 +27,6 @@ Installing:
 
 
 After these steps, you must log out and select the Awesome Window Manager.
+
+# Keybinds
+![image](https://github.com/LukasPinto/awesomewm-dotfiles/assets/73002372/63d3fdbe-57d2-4bff-9853-9f051940aba9)
