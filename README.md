@@ -18,7 +18,7 @@ Installing:
 1. Clone the respository and run the script.
   ```bash
   git clone --recursive https://github.com/LukasPinto/awesomewm-dotfiles.git
-  cd awesome-dotfiles
+  cd awesomewm-dotfiles
   ./autowm.sh $USER
    ```
 2. When the script is running, it will ask you for the password and to enter `yes` or `y`. You have to enter your password and hit yes to everything.
