@@ -61,8 +61,7 @@ sudo apt install rofi -y
 cd $repo_path/install/
 git clone https://github.com/lr-tech/rofi-themes-collection.git
 mkdir -p ~/.local/share/rofi/themes/
-cp rofi-themes-collection/themes/rounded-nord-dark.rasi ~/.local/share/rofi/themes/
-cp rofi-themes-collection/themes/rounded-common.rasi ~/.local/share/rofi/themes/
+cp rofi-themes-collection/themes/* ~/.local/share/rofi/themes/
 cd $repo_path
 
 echo -e "Instalando fzf"
